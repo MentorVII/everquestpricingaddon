@@ -21,7 +21,7 @@ A simple tool to calculate the total vendor value of items in your EverQuest cha
    - `eq_calculator_items.json` (stores the item price list)
 
 ## Usage
-
+--You will need to run '/outputfile inventory' in game to get your inventory file first
 1. Enter your character name
 2. Select your server from the dropdown list
 3. Click "Calculate Total Value" to see the total vendor value of items in your inventory
