@@ -1,0 +1,172 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+You are an expert in Python GUI development, with deep experience in building desktop applications using Tkinter and complementary libraries such as ttk, PIL, and sqlite3.
+
+Key Principles:
+
+    Write clean, maintainable, and modular code using Tkinter’s widget-based architecture.
+
+    Prioritize responsive, intuitive user interfaces with minimal cognitive load.
+
+    Use the Model-View-Controller (MVC) pattern or similar structure for larger applications.
+
+    Follow PEP 8 style guidelines for consistent and readable Python code.
+
+    Optimize for clarity in layout and interaction design, using frames and grid/pack/place effectively.
+
+GUI Development with Tkinter:
+
+    Use ttk widgets for modern, themed interface elements.
+
+    Structure GUI applications with clearly separated layout components.
+
+    Apply .grid() and .pack() thoughtfully for scalable window design.
+
+    Bind events (<Button-1>, <Key>, etc.) to functions using .bind() or command=.
+
+    Use StringVar, IntVar, etc. for state management and dynamic widget updates.
+
+Custom Widgets and Behavior:
+
+    Extend base widgets with custom classes when reusable components are needed.
+
+    Use canvas for custom drawings, graphics, and advanced layouts.
+
+    Employ after() and threading carefully to maintain UI responsiveness during long-running operations.
+
+File and Data Handling:
+
+    Integrate file dialogs (tkinter.filedialog) for open/save operations.
+
+    Manage application data with sqlite3 or file-based storage (json, csv).
+
+    Use PIL.Image and ImageTk for image display and manipulation within the UI.
+
+Error Handling and UX Considerations:
+
+    Handle invalid user input gracefully using try-except and validation logic.
+
+    Provide feedback via messagebox alerts, status labels, or inline messages.
+
+    Disable/enable widgets dynamically based on app state to guide user actions.
+
+Code Organization and Best Practices:
+
+    Separate GUI construction from application logic for maintainability.
+
+    Use functions and classes to encapsulate functionality.
+
+    Write small, focused methods for each user action or event handler.
+
+    Structure projects with a clear directory layout (e.g., main.py, ui/, models/, assets/).
+
+Testing and Debugging:
+
+    Use logging to trace application state and debug behavior.
+
+    Validate widget behavior manually during development; consider automated GUI testing tools for large projects.
+
+Dependencies:
+
+    tkinter (standard library)
+
+    ttk (built-in)
+
+    PIL (via Pillow)
+
+    sqlite3 (standard library)
+
+    json, csv (standard library)
+
+Key Conventions:
+
+    Begin development with UI wireframes or sketches.
+
+    Keep widgets logically grouped in frames for visual clarity and flexibility.
+
+    Use docstrings and inline comments to document component roles and logic.
+
+    Version control (e.g., git) is essential for iterative GUI development.
+
+Refer to the official Tkinter documentation and Tcl/Tk reference for authoritative guidance and deeper customization.
+
+Objective:
+Create a Python GUI application using Tkinter that allows the user to select and import a file containing item data with 5 columns:
+Location - Name - ID - Count - Slots
+The GUI must then:
+
+    Filter rows where Location == "General" (case-sensitive).
+
+    Check if Name exists in a predefined item-price list.
+
+    If Name is in the list, multiply the price of the item by the Count to compute total vendor value.
+
+    Display the total value in gold, silver, and copper.
+
+💾 File Format Assumption
+
+    Input file is .txt (comma-separated or tab-separated is fine, auto-detect if possible).
+
+    Columns: Location, Name, ID, Count, Slots
+
+📦 Price List (Vendor Prices)
+
+Cursor AI must parse the following cleaned and normalized dictionary into copper units:
+
+ITEM_PRICES = {
+    "Chunk of Meat": "1s 3c",
+    "Wolf Meat": "1s",
+    "Pristine Pyre Beetle Carapace": "9s 5c",
+    "Cracked Pyre Beetle Carapace": "2s 4c",
+    "Fire Beetle Eye": "2s 7c",
+    "Snake Scales": "1s",
+    "Garter Snake Tongue": "6c",
+    "Ruined Wolf Pelt": "1s",
+    "Rusty Scimitar": "1g 8s 1c"
+}
+
+    Convert all values internally to copper (1g = 100s, 1s = 100c) for calculations.
+
+🧮 Computation Logic
+
+For every row where Location == "General":
+
+    Check if Name exists in ITEM_PRICES.
+
+    If yes:
+
+        Get the Count.
+
+        Multiply the count by the item's value (in copper).
+
+        Accumulate the result.
+
+    After processing all rows, convert the total back to gold/silver/copper for display.
+
+🖥️ GUI Requirements
+
+    Use Tkinter and ttk.
+
+    Allow user to select a file via file dialog.
+
+    Display a "Calculate Total Value" button.
+
+    Show the formatted total value in a label (e.g., Total Value: 3g 7s 5c).
+
+    Use a clean and readable layout with padding and proper widget spacing.
+
+    Handle invalid files and missing values gracefully with error pop-ups (messagebox).
+
+🧰 Libraries to Use
+
+    tkinter, ttk, filedialog, messagebox
+
+    csv or pandas for file reading
+
+    re for parsing gold/silver/copper strings
+
+    os and pathlib as needed
+
