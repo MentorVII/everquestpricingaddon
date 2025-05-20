@@ -4,7 +4,7 @@ A simple tool to calculate the total vendor value of items in your EverQuest cha
 
 ## Installation
 
-1. Download the `EQ Vendor Calculator.exe` file
+1. Download the Repository
 2. **Important Security Step**: Before running the application:
    - Right-click on the `EQ Vendor Calculator.exe` file
    - Select "Properties"
